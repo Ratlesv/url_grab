@@ -1,0 +1,60 @@
+## Installation
+```
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+chmod +x uforall
+mkdir -p ~/bin
+if ! grep -qxF 'export PATH="$HOME/bin/UForAll:$PATH"' ~/.bashrc ; then echo -e '\nexport PATH="$HOME/bin/UForAll:$PATH"' >> ~/.bashrc ; fi
+cd .. && mv UForAll ~/bin && source ~/.bashrc
+```
+## Setup Api Key `Important` if you not setup api maybe the tool not work properly
+```
+# https://urlscan.io/user/signup (Paid/Free)
+# open urlscan.py add your api keys
+```
+
+## Usage
+
+Single URL:
+```
+uforall -d testphp.vulnweb.com -t 100 | anew
+```
+
+Multiple URLs:
+```
+uforall -l interesting_subs.txt -t 100 | anew
+```
+
+```
+
+                 __  __     ______   ______     ______     ______     __         __
+                /\ \/\ \   /\  ___\ /\  __ \   /\  == \   /\  __ \   /\ \       /\ \
+                \ \ \_\ \  \ \  __\ \ \ \/\ \  \ \  __<   \ \  __ \  \ \ \____  \ \ \____
+                 \ \_____\  \ \_\    \ \_____\  \ \_\ \_\  \ \_\ \_\  \ \_____\  \ \_____\
+                  \/_____/   \/_/     \/_____/   \/_/ /_/   \/_/\/_/   \/_____/   \/_____/
+                                    coded by @rix4uni in INDIA
+OPTIONS:
+   -d, --domain        Single Target domain (domain.com)
+   -l, --list          Multiple Target domain (interesting_subs.txt)
+   -t, --threads       number of threads to use (default 50)
+   -h, --help          Help - Show this help
+
+USAGE EXAMPLES:
+   uforall -d domain.com -t 100
+   uforall -l interesting_subs.txt -t 100
+
+---If you want to use only one service---
+Single URL:
+   echo "testphp.vulnweb.com" | python3 ~/bin/UForAll/archive.py -t 100
+   echo "testphp.vulnweb.com" | python3 ~/bin/UForAll/otx.py
+   echo "testphp.vulnweb.com" | python3 ~/bin/UForAll/urlscan.py -t 100
+   echo "testphp.vulnweb.com" | python3 ~/bin/UForAll/commoncrawl.py -t 100
+
+Multiple URLs:
+   cat interesting_subs.txt | python3 ~/bin/UForAll/archive.py -t 100
+   cat interesting_subs.txt | python3 ~/bin/UForAll/otx.py
+   cat interesting_subs.txt | python3 ~/bin/UForAll/urlscan.py -t 100
+   cat interesting_subs.txt | python3 ~/bin/UForAll/commoncrawl.py -t 100
+```
